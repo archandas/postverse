@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 const ATLAS_DB = process.env.ATLAS_DB;
 
 app.use(cors({
-    origin: ['http://localhost:5173','postverse-three.vercel.app'],
+    origin: ['http://localhost:5173','https://postverse-three.vercel.app'],
     credentials: true,
 }));
 
