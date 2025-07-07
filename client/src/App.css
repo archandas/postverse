@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,200;1,200&display=swap');
+
+body{
+    /* background-color:  #fffffe; */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+body::selection{
+  background-color: white;
+  color: black;
+}
+
+.heading{
+  background: #ffffff;
+background: linear-gradient(90deg,rgba(255, 255, 255, 1) 25%, rgb(165, 164, 164) 46%, rgba(255, 255, 255, 1) 68%);
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    /* text-shadow:3px 3px 15px rgba(0, 0, 0, 0.384); */
+}
+.txt-ai{
+  background: #1FA2FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); 
+/* background-color: rgba(245, 245, 245, 0.491); */
+-webkit-text-fill-color:transparent;
+background-clip:text;
+text-shadow: none;
+}
+
+/* .page-txt{
+  font-family: "Caveat", cursive;
+} */
+
+.step-icon-i{
+  background-color: rgba(162, 86, 255, 0.511);
+}
+
+.step-icon-ii{
+  background-color: rgba(253, 50, 148, 0.511);
+}
+
+.step-icon-iii{
+  background-color: rgba(53, 130, 255, 0.511);
+}
+
+.instagram{
+color: rgba(255, 44, 150, 0.607);
+}
+.instagram:hover{
+  color: rgba(255, 44, 150);
+}
+.linkedin{
+  color:#1f48ff9d
+}
+.linkedin:hover{
+  color:#1f48ff;
+}
+.twitter{
+  color: rgba(0, 191, 255, 0.703);
+}
+.twitter:hover{
+  color: rgba(0, 191, 255);
+}
+.facebook{
+  color:#385dffab;
+}
+.facebook:hover{
+  color:#385dff;
+}
+
+.create-steps{
+  transition: transform 0.3s ease-in-out;
+}
+.create-steps:hover{
+  cursor:default;
+  /* transform: scale(1.1); */
+  transform:skew(15deg);
+}

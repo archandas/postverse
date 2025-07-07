@@ -1,0 +1,24 @@
+
+
+.logo{
+    /* background: #d275f9; */
+    background: rgb(255, 0, 89);
+mask-image: url('./assets/logo.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+}
+
+.signup:hover{
+background: #1FA2FF; 
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); 
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); 
+
+}
+
+.signup-mobile:active{
+background: #1FA2FF;
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); 
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); 
+
+}
