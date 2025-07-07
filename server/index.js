@@ -15,12 +15,13 @@ import {signupRoute,loginRoute,authcheckRoute,logoutRoute} from './routes/auth.j
 import {openaiRoute} from './routes/genPost.js'
 
 const app = express();
+app.set("trust proxy", 1);
 const router = express.Router();
 const PORT = process.env.PORT || 5000;
 const ATLAS_DB = process.env.ATLAS_DB;
 
 app.use(cors({
-    origin: 'https://postverse-three.vercel.app',
+    origin: ['https://postverse-three.vercel.app'],
     credentials: true,
 }));
 
