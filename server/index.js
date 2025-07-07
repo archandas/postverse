@@ -44,11 +44,14 @@ const sessionOption = {
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie:{
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 3,
-        maxAge: 1000 * 60 * 60 * 24 * 3,
-        httpOnly: true,
-    }
+    cookie: {
+     expires: Date.now() + 1000 * 60 * 60 * 24 * 3,
+     maxAge: 1000 * 60 * 60 * 24 * 3,
+     httpOnly: true,
+     sameSite: "none",
+     secure: true
+}
+
 };
 
 app.use(session(sessionOption));
