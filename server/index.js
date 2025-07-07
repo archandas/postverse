@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 const ATLAS_DB = process.env.ATLAS_DB;
 
 app.use(cors({
-    origin: ['http://localhost:5173','https://postverse-three.vercel.app'],
+    origin: 'https://postverse-three.vercel.app',
     credentials: true,
 }));
 
@@ -43,9 +43,9 @@ const sessionOption = {
     store: store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-     expires: Date.now() + 1000 * 60 * 60 * 24 * 3,
+    //  expires: Date.now() + 1000 * 60 * 60 * 24 * 3,
      maxAge: 1000 * 60 * 60 * 24 * 3,
      httpOnly: true,
      sameSite: "none",

@@ -26,8 +26,8 @@ const navigate = useNavigate();
 
 useEffect(() => {
     const checkAuth = async () => {
+       axios.defaults.withCredentials = true;
     try {
-        axios.defaults.withCredentials = true;
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/authCheck`);
       if (response.data.success) {
         setIsLoggedIn(true);
