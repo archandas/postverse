@@ -116,7 +116,8 @@ let handleCreatePost = async () => {
           <div className="h-px my-2 bg-white/20" />
 
           <div className="w-full ml-3 mt-5">
-            {isLoggedIn ? (
+            { !loading && (
+            isLoggedIn ? (
               <a
                 onClick={handleLogout}
                 className="signup-mobile bg-transparent  text-[#12D8FA] font-semibold active:text-black py-1 px-2 border border-[#12D8FA] active:border-transparent rounded"
@@ -130,6 +131,7 @@ let handleCreatePost = async () => {
               >
                 Log in/Sign up
               </a>
+            )
             )}
           </div>
         </div>
