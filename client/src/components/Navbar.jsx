@@ -22,7 +22,7 @@ export default function Navbar ({ scrollToGuide, scrollToReview, scrollToHelp })
 
 let [isLoggedIn,setIsLoggedIn] = useState(false);
 let[username,setUsername] = useState();
-const [loading, setLoading] = useState(true);
+
 const navigate = useNavigate();
 
 useEffect(() => {
@@ -38,8 +38,6 @@ useEffect(() => {
       setIsLoggedIn(false);
       setUsername("");
       console.error("Auth check failed:", err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -116,7 +114,7 @@ let handleCreatePost = async () => {
           <div className="h-px my-2 bg-white/20" />
 
           <div className="w-full ml-3 mt-5">
-            { !loading && (
+            {
             isLoggedIn ? (
               <a
                 onClick={handleLogout}
@@ -131,7 +129,6 @@ let handleCreatePost = async () => {
               >
                 Log in/Sign up
               </a>
-            )
             )}
           </div>
         </div>
