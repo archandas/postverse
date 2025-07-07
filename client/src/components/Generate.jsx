@@ -49,7 +49,7 @@ export default function Generate(){
     const handleGenerate = async() =>{
         setIsCreating(true);  
         axios.defaults.withCredentials = true;
-        const response = await axios.post("http://localhost:5000/generate",
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/generate`,
             {content: content});
 
         if(response){

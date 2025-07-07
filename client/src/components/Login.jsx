@@ -24,7 +24,7 @@ export default function Login(){
   axios.defaults.withCredentials = true;
 
   try {
-    const response = await axios.post("http://localhost:5000/login", newUserData);
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, newUserData);
 
     if (response.data.success) {
       const redirectTo = localStorage.getItem("redirectAfterAuth") || "/";

@@ -24,7 +24,7 @@ export default function SignUp(){
       
       axios.defaults.withCredentials = true;
   try{
-      const response = await axios.post("http://localhost:5000/signup",
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`,
         newUserData
       );
 

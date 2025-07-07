@@ -28,7 +28,7 @@ useEffect(() => {
     const checkAuth = async () => {
     try {
         axios.defaults.withCredentials = true;
-      const response = await axios.get("http://localhost:5000/authCheck");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/authCheck`);
       if (response.data.success) {
         setIsLoggedIn(true);
         setUsername(response.data.user.username);
@@ -45,7 +45,7 @@ useEffect(() => {
 
 let handleLogout = async () => {
   axios.defaults.withCredentials = true;
-const response = await axios.get("http://localhost:5000/logout");
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/logout`);
 if (response.data.success) {
     setIsLoggedIn(false);
     setUsername("");
@@ -56,7 +56,7 @@ if (response.data.success) {
 
 let handleCreatePost = async () => {
   axios.defaults.withCredentials = true;
-  const response = await axios.get("http://localhost:5000/authCheck");
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/authCheck`);
   if(response.data.success){
     navigate("/generate");
   } else {

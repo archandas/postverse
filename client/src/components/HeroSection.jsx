@@ -9,14 +9,13 @@ export default function HeroSection (){
 
   let handleGetStarted = async() =>{
     axios.defaults.withCredentials = true;
-    const response = await axios.get("http://localhost:5000/authCheck");
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/authCheck`);
     if(response.data.success){
       navigate("/generate");
     } else{
       localStorage.setItem("redirectAfterAuth", "/generate");
       navigate("/signup");
 
-      // navigate("/signup");
     }
     
   }
