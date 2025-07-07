@@ -22,6 +22,7 @@ export default function Navbar ({ scrollToGuide, scrollToReview, scrollToHelp })
 
 let [isLoggedIn,setIsLoggedIn] = useState(false);
 let[username,setUsername] = useState();
+const [loading, setLoading] = useState(true);
 const navigate = useNavigate();
 
 useEffect(() => {
@@ -37,6 +38,8 @@ useEffect(() => {
       setIsLoggedIn(false);
       setUsername("");
       console.error("Auth check failed:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
