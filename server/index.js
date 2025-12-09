@@ -30,10 +30,13 @@ app.use(express.json());
 
 const store = MongoStore.create({
     mongoUrl: ATLAS_DB,
+    mongoOptions: {
+        tlsAllowInvalidCertificates: true
+    },
     crypto: {
         secret: process.env.SECRET,
     },
-    touchAfter: 24*3600,
+    touchAfter: 24 * 3600,
 });
 
 store.on("error", () => {
@@ -68,10 +71,15 @@ passport.deserializeUser(User.deserializeUser());
 
 app.listen(PORT,()=>console.log("app is listening!"));
 
-async function main(){
-    await mongoose.connect(ATLAS_DB);
+async function main() {
+    await mongoose.connect(ATLAS_DB, {
+        tlsAllowInvalidCertificates: true
+    });
 }
-main().then(()=>console.log("db is connected!")).catch(err => console.log(err));
+
+main()
+    .then(() => console.log("DB is connected!"))
+    .catch(err => console.log(err));
 
 
 
