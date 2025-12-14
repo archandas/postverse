@@ -22,14 +22,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const ATLAS_DB = process.env.ATLAS_DB;
 
-/* =====================
-   TRUST PROXY
-===================== */
+
 app.set("trust proxy", 1);
 
-/* =====================
-   CORS
-===================== */
+
 app.use(
   cors({
     origin: [
@@ -40,19 +36,15 @@ app.use(
   })
 );
 
-/* =====================
-   BODY PARSER
-===================== */
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* =====================
-   SESSION STORE
-===================== */
+
 const store = MongoStore.create({
   mongoUrl: ATLAS_DB,
   mongoOptions: {
-    tlsAllowInvalidCertificates: true, // ✅ ONLY THIS
+    tlsAllowInvalidCertificates: true,
   },
   crypto: {
     secret: process.env.SECRET,
@@ -64,15 +56,13 @@ store.on("error", (err) => {
   console.error("SESSION STORE ERROR:", err);
 });
 
-/* =====================
-   SESSION CONFIG
-===================== */
+
 app.use(
   session({
     store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false, // ✅ IMPORTANT
+    saveUninitialized: false,
     cookie: {
       httpOnly: true,
       secure: true,
@@ -82,9 +72,7 @@ app.use(
   })
 );
 
-/* =====================
-   PASSPORT
-===================== */
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -92,18 +80,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-/* =====================
-   ROUTES
-===================== */
+
 app.post("/signup", signupRoute);
 app.post("/login", loginRoute);
 app.get("/authCheck", authcheckRoute);
 app.get("/logout", logoutRoute);
 app.post("/generate", openaiRoute);
 
-/* =====================
-   DATABASE CONNECT
-===================== */
+
 async function connectDB() {
   try {
     await mongoose.connect(ATLAS_DB, {
@@ -118,9 +102,6 @@ async function connectDB() {
 
 connectDB();
 
-/* =====================
-   START SERVER
-===================== */
 app.listen(PORT, () => {
   console.log("App is listening on port", PORT);
 });
